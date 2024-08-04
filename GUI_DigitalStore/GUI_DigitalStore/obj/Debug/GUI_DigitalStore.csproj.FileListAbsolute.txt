@@ -1,0 +1,10 @@
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\bin\Debug\GUI_DigitalStore.exe.config
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\bin\Debug\GUI_DigitalStore.exe
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\bin\Debug\GUI_DigitalStore.pdb
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\obj\Debug\GUI_DigitalStore.csproj.AssemblyReference.cache
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\obj\Debug\GUI_DigitalStore.Digital_Store.resources
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\obj\Debug\GUI_DigitalStore.Properties.Resources.resources
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\obj\Debug\GUI_DigitalStore.csproj.GenerateResource.cache
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\obj\Debug\GUI_DigitalStore.csproj.CoreCompileInputs.cache
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\obj\Debug\GUI_DigitalStore.exe
+C:\Users\edene\OneDrive\שולחן העבודה\מטלות הגשה בתכנות\מטלות הגשה ב-C#\GUI_DigitalStore\GUI_DigitalStore\obj\Debug\GUI_DigitalStore.pdb
