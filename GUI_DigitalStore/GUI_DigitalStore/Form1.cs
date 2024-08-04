@@ -8,19 +8,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Serialization;
 using static System.Windows.Forms.AxHost;
+
+//Eden Eliyahu 208081489
+//Daniel Khodyrev 322648965
 
 namespace GUI_DigitalStore
 {
     public partial class Digital_Store : Form
     {
         private Store store = new Store();
-        private string buyersFilePath = "buyers.xml";
-        private string merchantsFilePath = "merchants.xml";
+        private string buyersFilePath = "buyers.txt";
+        private string merchantsFilePath = "merchants.txt";
         public Digital_Store()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            if (File.Exists(buyersFilePath))
+            {
+                var buyersLines = File.ReadAllLines(buyersFilePath);
+                foreach (var line in buyersLines)
+                {
+                    var parts = line.Split('|');
+                    var adress = new Adress(parts[2], parts[3], parts[4], int.Parse(parts[5]));
+                    var buyer = new Buyer(parts[0], parts[1], adress);
+                    store.AddBuyer(buyer);
+                }
+            }
+
+            if (File.Exists(merchantsFilePath))
+            {
+                var merchantsLines = File.ReadAllLines(merchantsFilePath);
+                foreach (var line in merchantsLines)
+                {
+                    var parts = line.Split('|');
+                    var adress = new Adress(parts[2], parts[3], parts[4], int.Parse(parts[5]));
+                    var merchant = new Merchant(parts[0], parts[1], adress);
+                    store.AddMerchant(merchant);
+                }
+            }
+        }
+
+        private void SaveData()
+        {
+            var buyersLines = store.GetBuyersList().Select(b => $"{b.Name}|{b.Password}|{b.Adress.Street}|{b.Adress.City}|{b.Adress.Country}|{b.Adress.BuildingNum}");
+            File.WriteAllLines(buyersFilePath, buyersLines);
+
+            var merchantsLines = store.GetMerchantsList().Select(m => $"{m.Name}|{m.Password}|{m.Adress.Street}|{m.Adress.City}|{m.Adress.Country}|{m.Adress.BuildingNum}");
+            File.WriteAllLines(merchantsFilePath, merchantsLines);
+        }
+
+        private void btnCloseApp_Click(object sender, EventArgs e)
+        {
+            SaveData();
+            Application.Exit();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            SaveData();
+            base.OnFormClosing(e);
         }
 
         private bool AreBuyerFieldsFilled()
