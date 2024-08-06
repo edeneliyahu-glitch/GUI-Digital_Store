@@ -76,7 +76,7 @@ namespace GUI_DigitalStore
             base.OnFormClosing(e);
         }
 
-        private bool AreBuyerFieldsFilled()
+        private bool AreBuyerFieldsFilled() //בדיקה האם מולאו כל השדות הנדרשים
         {
             return !string.IsNullOrWhiteSpace(textBoxbuyername.Text) &&
                    !string.IsNullOrWhiteSpace(textBoxbuyerpassword.Text) &&
@@ -86,7 +86,7 @@ namespace GUI_DigitalStore
                    !string.IsNullOrWhiteSpace(textBoxbuyernumber.Text);
         }
 
-        private bool AreMerchantFieldsFilled()
+        private bool AreMerchantFieldsFilled() //בדיקה האם מולאו כל השדות הנדרשים
         {
             return !string.IsNullOrWhiteSpace(textBoxmerchantname.Text) &&
                    !string.IsNullOrWhiteSpace(textBoxmerchantpassword.Text) &&
@@ -96,7 +96,7 @@ namespace GUI_DigitalStore
                    !string.IsNullOrWhiteSpace(textBoxmerchantnumber.Text);
         }
 
-        private bool AreItemFieldsFilled()
+        private bool AreItemFieldsFilled() //בדיקה האם מולאו כל השדות הנדרשים
         {
             return !string.IsNullOrWhiteSpace(textBoxitemname.Text) &&
                    !string.IsNullOrWhiteSpace(textBoxitemprice.Text) &&
@@ -105,7 +105,135 @@ namespace GUI_DigitalStore
                    (checkBoxchildren.Checked || checkBoxelectricity.Checked || checkBoxoffice.Checked || checkBoxclothing.Checked);
         }
 
-        private bool IsValidName(string name)
+        private bool AreAddItemToBuyerFieldsFilled()// מוודא שדות מולאו כראוי
+        {
+            return !string.IsNullOrWhiteSpace(textBoxbuyernamecart.Text) &&
+                   !string.IsNullOrWhiteSpace(textBoxitemnamecart.Text) &&
+                   !string.IsNullOrWhiteSpace(textBoxmerchantnamecart.Text);
+        }
+
+        private void ShowHideSections(string section)
+        {
+            // הסתרת כל השדות והלייבלים
+            lblbuyername.Visible = false;
+            lblbuyerpassword.Visible = false;
+            lblbuyercountery.Visible = false;
+            lblbuyercity.Visible = false;
+            lblbuyerstreet.Visible = false;
+            lblbuyernumber.Visible = false;
+            textBoxbuyername.Visible = false;
+            textBoxbuyerpassword.Visible = false;
+            textBoxbuyercountry.Visible = false;
+            textBoxbuyercity.Visible = false;
+            textBoxbuyerstreet.Visible = false;
+            textBoxbuyernumber.Visible = false;
+            btnbuyersubmit.Visible = false;
+
+            lblmerchantname.Visible = false;
+            lblmerchantpassword.Visible = false;
+            lblmerchantcoutrey.Visible = false;
+            lblmerchantcity.Visible = false;
+            lblmerchantstreet.Visible = false;
+            lblmerchantnumber.Visible = false;
+            textBoxmerchantname.Visible = false;
+            textBoxmerchantpassword.Visible = false;
+            textBoxmerchantcoutrey.Visible = false;
+            textBoxmerchantcity.Visible = false;
+            textBoxmerchantstreet.Visible = false;
+            textBoxmerchantnumber.Visible = false;
+            btnsubmitmerchantdata.Visible = false;
+
+            lblitemname.Visible = false;
+            lblitemprice.Visible = false;
+            lblspecialpackagingprice.Visible = false;
+            lblmerchantnameforitem.Visible = false;
+            lblitemcatagory.Visible = false;
+            lblspecialpackaging.Visible = false;
+            textBoxitemname.Visible = false;
+            textBoxitemprice.Visible = false;
+            textBoxpackagingprice.Visible = false;
+            textBoxmerchantnameitem.Visible = false;
+            checkBoxchildren.Visible = false;
+            checkBoxelectricity.Visible = false;
+            checkBoxoffice.Visible = false;
+            checkBoxclothing.Visible = false;
+            checkBoxyes.Visible = false;
+            checkBoxno.Visible = false;
+            btnadditemtomerchant.Visible = false;
+
+            lblbuyernamecart.Visible = false;
+            lblitemnamecart.Visible = false;
+            lblmerchantnamecart.Visible = false;
+            textBoxbuyernamecart.Visible = false;
+            textBoxitemnamecart.Visible = false;
+            textBoxmerchantnamecart.Visible = false;
+            btnadditemtobuyer.Visible = false;
+
+            // הצגת השדות והלייבלים הרלוונטיים בהתאם לפרמטר
+            switch (section)
+            {
+                case "AddBuyer":
+                    lblbuyername.Visible = true;
+                    lblbuyerpassword.Visible = true;
+                    lblbuyercountery.Visible = true;
+                    lblbuyercity.Visible = true;
+                    lblbuyerstreet.Visible = true;
+                    lblbuyernumber.Visible = true;
+                    textBoxbuyername.Visible = true;
+                    textBoxbuyerpassword.Visible = true;
+                    textBoxbuyercountry.Visible = true;
+                    textBoxbuyercity.Visible = true;
+                    textBoxbuyerstreet.Visible = true;
+                    textBoxbuyernumber.Visible = true;
+                    btnbuyersubmit.Visible = true;
+                    break;
+                case "AddMerchant":
+                    lblmerchantname.Visible = true;
+                    lblmerchantpassword.Visible = true;
+                    lblmerchantcoutrey.Visible = true;
+                    lblmerchantcity.Visible = true;
+                    lblmerchantstreet.Visible = true;
+                    lblmerchantnumber.Visible = true;
+                    textBoxmerchantname.Visible = true;
+                    textBoxmerchantpassword.Visible = true;
+                    textBoxmerchantcoutrey.Visible = true;
+                    textBoxmerchantcity.Visible = true;
+                    textBoxmerchantstreet.Visible = true;
+                    textBoxmerchantnumber.Visible = true;
+                    btnsubmitmerchantdata.Visible = true;
+                    break;
+                case "AddItemToMerchant":
+                    lblitemname.Visible = true;
+                    lblitemprice.Visible = true;
+                    lblspecialpackagingprice.Visible = true;
+                    lblmerchantnameforitem.Visible = true;
+                    lblitemcatagory.Visible = true;
+                    lblspecialpackaging.Visible = true;
+                    textBoxitemname.Visible = true;
+                    textBoxitemprice.Visible = true;
+                    textBoxpackagingprice.Visible = true;
+                    textBoxmerchantnameitem.Visible = true;
+                    checkBoxchildren.Visible = true;
+                    checkBoxelectricity.Visible = true;
+                    checkBoxoffice.Visible = true;
+                    checkBoxclothing.Visible = true;
+                    checkBoxyes.Visible = true;
+                    checkBoxno.Visible = true;
+                    btnadditemtomerchant.Visible = true;
+                    break;
+                case "AddItemToBuyer":
+                    lblbuyernamecart.Visible = true;
+                    lblitemnamecart.Visible = true;
+                    lblmerchantnamecart.Visible = true;
+                    textBoxbuyernamecart.Visible = true;
+                    textBoxitemnamecart.Visible = true;
+                    textBoxmerchantnamecart.Visible = true;
+                    btnadditemtobuyer.Visible = true;
+                    break;
+            }
+        }
+
+        private bool IsValidName(string name) //בדיקה האם השם מורכב רק מאותיות
         {
             foreach (char c in name)
             {
@@ -119,19 +247,22 @@ namespace GUI_DigitalStore
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblbuyercity.Visible = true;   
-            lblbuyercountery.Visible = true;    
-            lblbuyername.Visible = true;    
-            lblbuyernumber.Visible = true;  
-            lblbuyerpassword.Visible = true;    
-            lblbuyerstreet.Visible = true;  
-            textBoxbuyercity.Visible=true;  
-            textBoxbuyercountry.Visible=true;   
-            textBoxbuyername.Visible=true;  
-            textBoxbuyernumber.Visible=true;    
-            textBoxbuyerpassword.Visible=true;  
-            textBoxbuyerstreet.Visible=true;    
-            btnbuyersubmit.Visible=true;
+            ShowHideSections("AddBuyer");
+        }
+
+        private void btnaddmerchant_Click(object sender, EventArgs e)
+        {
+            ShowHideSections("AddMerchant");
+        }
+
+        private void btnadditemmerchant_Click(object sender, EventArgs e)
+        {
+            ShowHideSections("AddItemToMerchant");
+        }
+
+        private void btnadditembuyer_Click(object sender, EventArgs e)
+        {
+            ShowHideSections("AddItemToBuyer");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -149,9 +280,9 @@ namespace GUI_DigitalStore
             return int.TryParse(text, out _);
         }
 
-        private void btnbuyersubmit_Click(object sender, EventArgs e)
+        private void btnbuyersubmit_Click(object sender, EventArgs e)// הוספת לקוח למערכת
         {
-            if (!AreBuyerFieldsFilled())
+            if (!AreBuyerFieldsFilled()) 
             {
                 MessageBox.Show("Please fill all buyer fields.");
                 return;
@@ -213,14 +344,14 @@ namespace GUI_DigitalStore
             dataGridViewBuyers.DataSource = table;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e) //הצגת הטבלת מידע עבור לקוחות
         {
             dataGridViewBuyers.Visible = true;
             lblbuyersdata.Visible = true;   
             ShowAllBuyersData();
         }
 
-        private void btnshowmerchantsdata_Click(object sender, EventArgs e)
+        private void btnshowmerchantsdata_Click(object sender, EventArgs e) //הצגת הטבלת מידע עבור מוכרים
         {
             dataGridViewMerchants.Visible = true;
             lblmerchantsdata.Visible = true;
@@ -267,23 +398,6 @@ namespace GUI_DigitalStore
 
         }
 
-        private void btnaddmerchant_Click(object sender, EventArgs e)
-        {
-            lblmerchantcity.Visible = true;
-            lblmerchantname.Visible = true;
-            lblmerchantcoutrey.Visible = true;  
-            lblmerchantstreet.Visible = true; 
-            lblmerchantnumber.Visible = true;
-            lblmerchantpassword.Visible = true;
-            textBoxmerchantcity.Visible = true;
-            textBoxmerchantcoutrey.Visible=true;
-            textBoxmerchantname.Visible = true;
-            textBoxmerchantnumber.Visible=true;
-            textBoxmerchantpassword.Visible=true;
-            textBoxmerchantstreet.Visible=true; 
-            btnsubmitmerchantdata.Visible = true;
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -294,7 +408,7 @@ namespace GUI_DigitalStore
 
         }
 
-        private void btnsubmitmerchantdata_Click(object sender, EventArgs e)
+        private void btnsubmitmerchantdata_Click(object sender, EventArgs e) //הוספת מוכר למערכת
         {
             if (!AreMerchantFieldsFilled())
             {
@@ -342,43 +456,14 @@ namespace GUI_DigitalStore
 
         }
 
-        private void btnadditemmerchant_Click(object sender, EventArgs e)
-        {
-            lblitemname.Visible = true;
-            lblmerchantnameforitem.Visible = true;
-            lblitemprice.Visible = true;
-            lblspecialpackaging.Visible = true;
-            lblitemcatagory.Visible = true; 
-            textBoxitemname.Visible = true;
-            textBoxitemprice.Visible = true;
-            textBoxmerchantnameitem.Visible = true;
-            btnadditemmerchant.Visible = true;
-            checkBoxchildren.Visible = true;
-            checkBoxclothing.Visible = true;
-            checkBoxelectricity.Visible = true;
-            checkBoxno.Visible = true;
-            checkBoxoffice.Visible = true;  
-            checkBoxyes.Visible = true;
-            btnadditemtomerchant.Visible = true;
-        }
 
         private void textBoxpackagingprice_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnadditembuyer_Click(object sender, EventArgs e)
-        {
-            lblitemnamecart.Visible = true;
-            lblmerchantnamecart.Visible = true;
-            lblbuyernamecart.Visible = true;
-            btnadditemtobuyer.Visible = true;
-            textBoxitemnamecart.Visible = true;
-            textBoxmerchantnamecart.Visible = true;
-            textBoxbuyernamecart.Visible=true;
-        }
 
-        private void btnadditemtomerchant_Click(object sender, EventArgs e)
+        private void btnadditemtomerchant_Click(object sender, EventArgs e) //הוספת מוצר לרשימה של מוכר
         {
             if (!AreItemFieldsFilled())
             {
@@ -463,14 +548,8 @@ namespace GUI_DigitalStore
             }
         }
 
-        private bool AreAddItemToBuyerFieldsFilled()
-        {
-            return !string.IsNullOrWhiteSpace(textBoxbuyernamecart.Text) &&
-                   !string.IsNullOrWhiteSpace(textBoxitemnamecart.Text) &&
-                   !string.IsNullOrWhiteSpace(textBoxmerchantnamecart.Text);
-        }
 
-        private void btnadditemtobuyer_Click(object sender, EventArgs e)
+        private void btnadditemtobuyer_Click(object sender, EventArgs e)// הוספת מוצר לעגלת קניות של לקוח
         {
             if (!AreAddItemToBuyerFieldsFilled())
             {

@@ -145,7 +145,7 @@
             // 
             // btnshowbuyersdata
             // 
-            this.btnshowbuyersdata.Location = new System.Drawing.Point(15, 365);
+            this.btnshowbuyersdata.Location = new System.Drawing.Point(10, 365);
             this.btnshowbuyersdata.Name = "btnshowbuyersdata";
             this.btnshowbuyersdata.Size = new System.Drawing.Size(236, 64);
             this.btnshowbuyersdata.TabIndex = 6;
@@ -155,7 +155,7 @@
             // 
             // btnshowmerchantsdata
             // 
-            this.btnshowmerchantsdata.Location = new System.Drawing.Point(305, 365);
+            this.btnshowmerchantsdata.Location = new System.Drawing.Point(760, 365);
             this.btnshowmerchantsdata.Name = "btnshowmerchantsdata";
             this.btnshowmerchantsdata.Size = new System.Drawing.Size(236, 64);
             this.btnshowmerchantsdata.TabIndex = 7;
@@ -718,7 +718,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1480, 661);
+            this.ClientSize = new System.Drawing.Size(1493, 664);
             this.Controls.Add(this.btnadditemtobuyer);
             this.Controls.Add(this.textBoxmerchantnamecart);
             this.Controls.Add(this.textBoxitemnamecart);
