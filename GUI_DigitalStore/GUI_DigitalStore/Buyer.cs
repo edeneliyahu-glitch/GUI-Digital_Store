@@ -112,5 +112,9 @@ namespace GUI_DigitalStore
         {
             return Tuple.Create(base.GetHashCode(), shoppingCart, ordersList).GetHashCode();
         }
+
+        Console.WriteLine("Item added to the cart successfully.");
+
+
     }
 }
